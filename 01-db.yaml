@@ -1,0 +1,27 @@
+- name: configure db server
+  hosts: db
+  become: yes
+  vars:
+    login_host: db.devopsme.online
+  tasks:
+  - name: install MySql Server
+    ansible.builtin.dnf:
+      name: mysql-server
+      state: latest
+
+  - name: start and enable mysql server
+    ansible.builtin.service:
+    name: mysqld
+    state: started
+    enabled: yes
+  
+# check password is already setup or not
+
+  - name: check db connection
+    community.mysql.mysql_info:  # this is the community module we took
+      login_user: root
+      login_password: Expense@1
+      login_host: "{{login_host}}"  # here we took loginhost to vars to change in future
+      filter: version                # filter is used to check version after connecting to the community module, as we use command anisble --version
+    ignore_errors: yes #we know that errors comes so we gave it
+    register: mysql_connection_output  #when we run a task to take the output to varible
