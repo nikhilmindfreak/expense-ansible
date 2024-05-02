@@ -5,6 +5,6 @@
     prompt: please enter MySQL root password
     private: no
   tasks:
-  - name: install MySql Server
+  - name: echo
     ansible.builtin.debug:
-      msg : "{{mysql_root_password}}""
+      msg : "{{mysql_root_password}}"
