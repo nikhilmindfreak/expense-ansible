@@ -45,4 +45,4 @@
 # setup root password
   - name: setup root and password
     ansible.builtin.command: "mysql_secure_installation --set-root-pass {{mysql_root_password}}"  # we can give command in the builtin
-    when: mmysql_connection_output.failed is true #boolean condition
+    when: mmysql_connection_output.failed is true #boolean condition and dont give {{}} in when condition
