@@ -11,4 +11,3 @@
   - name: install MySql Server
     ansible.builtin.debug:
       msg : "{{mysql_root_password}}""
-      
