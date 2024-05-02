@@ -21,7 +21,7 @@
       name: 
       - PyMySQL  #this is the dependency for MySQL
       - cryptography   #
-      executable: pip3.3  #check ansible python version and give the pip
+      executable: pip3.9  #check ansible python version and give the pip
   
 # check password is already setup or not
 
