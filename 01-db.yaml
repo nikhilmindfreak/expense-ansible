@@ -11,9 +11,9 @@
 
   - name: start and enable mysql server
     ansible.builtin.service:
-    name: mysqld
-    state: started
-    enabled: yes
+      name: mysqld
+      state: started
+      enabled: yes
   
 # check password is already setup or not
 
@@ -24,4 +24,8 @@
       login_host: "{{login_host}}"  # here we took loginhost to vars to change in future
       filter: version                # filter is used to check version after connecting to the community module, as we use command anisble --version
     ignore_errors: yes #we know that errors comes so we gave it
-    register: mysql_connection_output  #when we run a task to take the output to varible
+    register: mysql_connection_output  #when we run a task we use register to take the output to varible 
+
+  - name: print output
+    ansible.builtin.debug:
+      msg: " output: {{mysql_connection_output}}"  # we are printing the register varible here
