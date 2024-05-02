@@ -1,8 +1,5 @@
-- name: configure db server
+- name: just practice
   hosts: localhost
-  become: yes
-  vars:
-    login_host: db.devopsme.online
   vars_prompt:
   - name: mysql_root_password
     prompt: please enter MySQL root password
