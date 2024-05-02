@@ -7,4 +7,4 @@
   tasks:
   - name: echo
     ansible.builtin.debug:
-      msg : "{{mysql_root_password}}"
+      msg : "{{mysql_root_password | unique }}"
